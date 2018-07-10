@@ -1,0 +1,58 @@
+// SECTION HEADER
+
+%section-header {
+  @extend %wrapper-md;
+  text-align: center;
+  .section-title {
+    @include font(24, 6, $openSans);
+    position: relative;
+    padding-bottom: 30px;
+    margin-bottom: 22px;
+    font-size: 24px;
+    text-transform: uppercase;
+    @include breakpoint($mq-md) {
+      @include font-size(30, 6);
+    }
+    &:after {
+      @include pseudoElement();
+      left: 50%;
+      bottom: 0;
+      margin-left: -48px;
+    }
+  }
+  .section-intro {
+    @include font(14, 6, $openSans);
+    text-align: center;
+    @include breakpoint($mq-sm) {
+      padding: 0 60px;
+    }
+    @include breakpoint($mq-md) {
+      @include font-size(16, 6);
+    }
+  }
+}
+
+// Sections with white background
+
+.section-header--dark {
+  @extend %section-header;
+  color: $white;
+  .section-title {
+    &:after {
+      @include sprite("ico-border-white");
+    }
+  }
+}
+
+
+// Sections with colored background
+
+.section-header--white {
+  @extend %section-header;
+  color: $blackish;
+  .section-title {
+    &:after {
+      @include sprite("ico-border-black");
+    }
+  }
+}

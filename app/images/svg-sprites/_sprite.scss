@@ -1,0 +1,38 @@
+$icons: (
+  sprite: (
+    width: 313px,
+    height: 132px,
+    pngPath: '../images/png-sprites/sprite.png',
+    svgPath: '../images/svg-sprites/sprite.svg'
+  ),
+  ico-border-black: (
+    width: 95.06px,
+    height: 10.69px,
+    backgroundX: 0px,
+    backgroundY: 0px
+  ),
+  ico-border-white: (
+    width: 95.06px,
+    height: 10.69px,
+    backgroundX: -96px,
+    backgroundY: -11px
+  ),
+  ico-close: (
+    width: 40.7px,
+    height: 40.7px,
+    backgroundX: -192px,
+    backgroundY: -22px
+  ),
+  ico-double-arrow: (
+    width: 51px,
+    height: 51px,
+    backgroundX: -233px,
+    backgroundY: -63px
+  ),
+  ico-eye: (
+    width: 28.8px,
+    height: 17.4px,
+    backgroundX: -284px,
+    backgroundY: -114px
+  ),
+);

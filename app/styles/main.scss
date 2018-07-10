@@ -1,0 +1,350 @@
+// bower:scss
+@import "bower_components/meyer-reset/stylesheets/_meyer-reset.scss";
+@import "bower_components/normalize-scss/_normalize.scss";
+@import "bower_components/sassy-maps/sass/_sassy-maps.scss";
+@import "bower_components/breakpoint-sass/stylesheets/_breakpoint.scss";
+// endbower
+
+// @import "../../bower_components/sass-mq/_mq.scss"; => Can be used instead of the previous one
+
+// Base
+@import "app/styles/base/base";
+@import "app/styles/atoms/atoms";
+@import "app/styles/molecules/molecules";
+@import "app/styles/organisms/organisms";
+
+
+// PORTFOLIO SECTION
+
+.portfolio-section {
+  padding: 40px 0 60px 0;
+  background: $white;
+  .section-header--white { margin-bottom: 40px; }
+  .page-wrapper-lg {
+    @include breakpoint($mq-sm) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 20px;
+    }
+    @include breakpoint($mq-md) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 30px;
+    }
+    @include breakpoint($mq-xl) {
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 40px;
+    }
+  }
+  .legacy-css-grid {
+    @extend %wrapper-md;
+    margin-bottom: 40px;
+  }
+  .project-item {
+    margin-bottom: 30px;
+    &:last-child {
+      @include breakpoint($mq-md $mq-lg) {
+        grid-column: 2;
+      }
+    }
+    @include breakpoint($mq-sm) {
+      margin-bottom: 0;
+    }
+  }
+  .project-link,
+  .project-figure,
+  .project-img {
+    width: 100%;
+  }
+}
+
+// INTER SECTION WITH TAGLINE
+
+.inter-section--tagline {
+
+}
+
+
+// SKILL SECTION
+
+.skill-section {
+  padding: 60px 0;
+  background: $blueLight;
+  .section-header--dark { margin-bottom: 40px; }
+  .legacy-css-grid {
+    @extend %wrapper-md;
+    margin-bottom: 40px;
+  }
+  .skill-list {
+    margin-bottom: 40px;
+    @include breakpoint($mq-md) {
+      display: grid;
+      grid-template: repeat(4, 40px) / 1fr 1fr;
+      grid-auto-flow: column;
+      grid-gap: 10px 60px;
+      margin-bottom: 60px;
+    }
+    @include breakpoint($mq-lg) {
+      grid-gap: 10px 80px;
+      margin-bottom: 80px;
+    }
+  }
+  .skill-item {
+    margin-bottom: 10px;
+    @include breakpoint($mq-lg) {
+      margin-bottom: 0;
+    }
+  }
+  .quality-list {
+    display: grid;
+    grid-template: auto / 1fr 1fr;
+    grid-gap: 20px;
+    @include breakpoint($mq-sm) {
+      grid-template: auto / 1fr 1fr 1fr;
+      grid-gap: 30px;
+    }
+    @include breakpoint($mq-md) {
+      grid-template: auto / 1fr 1fr 1fr 1fr;
+      grid-gap: 40px;
+    }
+    @include breakpoint($mq-lg) {
+      grid-template: auto / 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+    li {
+      &:nth-child(5) {
+        @include breakpoint($mq-md $mq-lg) {
+          grid-column: 2;
+        }
+      }
+      &:nth-child(6) {
+        @include breakpoint($mq-md $mq-lg) {
+          grid-column: 3;
+        }
+      }
+    }
+  }
+  .quality-item {
+
+  }
+}
+
+
+// EDUCATION AND EMPLOYMENT BLOCK
+
+.timeline-section {
+  position: relative;
+  overflow: hidden;
+  padding: 70px 0 60px 0;
+  background: $white;
+  @include breakpoint($mq-sm) {
+    padding-top: 80px;
+  }
+  @include breakpoint($mq-md) {
+    padding-top: 90px;
+  }
+  @include breakpoint($mq-xl) {
+    padding-top: 100px;
+  }
+  @include breakpoint($mq-xxl) {
+    padding-top: 110px;
+  }
+  &:before {
+    @include pseudoElement();
+    z-index: 1;
+    height: 42px;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: url("../images/curve-blue-light2.svg") center top no-repeat;
+    background-size: 104%;
+  }
+  .section-header--white {
+    position: relative;
+    z-index: 1;            // Above cogs
+    margin-bottom: 40px;
+  }
+  .legacy-css-grid {
+    @extend %wrapper-md;
+    margin-bottom: 40px;
+  }
+  .timeline-list {
+    position: relative;
+    z-index: 1;
+  }
+  .timeline-cogs {
+    position: absolute;
+    width: 30%;
+    max-width: 400px;
+    &.timeline-cogs--left {
+      top: -30px;
+      left: -7.5%;
+      @include breakpoint($mq-md) {
+        top: -65px;
+      }
+      @include breakpoint($mq-xxl) {
+        left: -5.5%;
+      }
+    }
+    &.timeline-cogs--right {
+      transform: rotate(180deg);
+      bottom: -30px;
+      right: -7.5%;
+      @include breakpoint($mq-md) {
+        bottom: -65px;
+      }
+      @include breakpoint($mq-xxl) {
+        right: -5.5%;
+      }
+    }
+    svg {
+      float: left;
+    }
+
+    svg:nth-child(2) {
+      margin-left: 24%;
+      margin-top: -26%;
+    }
+
+    svg:nth-child(3) {
+      margin-top: -26%;
+    }
+  }
+}
+
+// THEY TRUSTED ME
+
+.references-section {
+  padding: 60px 0;
+  background: $white;
+  .section-header--white { margin-bottom: 40px; }
+  .legacy-css-grid {
+    @extend %wrapper-md;
+    margin-bottom: 40px;
+  }
+  .reference-list {
+    display: grid;
+    grid-template: auto / 1fr 1fr;
+    @include breakpoint($mq-sm) {
+      grid-template: auto / 1fr 1fr 1fr;
+    }
+    @include breakpoint($mq-lg) {
+      grid-template: auto / 1fr 1fr 1fr 1fr;
+    }
+    li {
+      border-right: 1px solid $greyLightest;
+      border-bottom: 1px solid $greyLightest;
+      &:nth-child(2n) {
+        border-right: 0;
+        @include breakpoint($mq-sm) {
+          border-right: 1px solid $greyLightest;
+        }
+      }
+      &:nth-last-of-type(-n+2) {
+        border-bottom: 0;
+        @include breakpoint($mq-sm) {
+          border-bottom: 1px solid $greyLightest;
+        }
+      }
+      &:nth-child(3n) {
+        @include breakpoint($mq-sm) {
+          border-right: 0;
+        }
+        @include breakpoint($mq-lg) {
+          border-right: 1px solid $greyLightest;
+        }
+      }
+      &:nth-last-of-type(-n+3) {
+        @include breakpoint($mq-sm) {
+          border-bottom: 0;
+        }
+        @include breakpoint($mq-lg) {
+          border-bottom: 1px solid $greyLightest;
+        }
+      }
+      &:nth-child(4n) {
+        @include breakpoint($mq-lg) {
+          border-right: 0;
+        }
+      }
+      &:nth-last-of-type(-n+4) {
+        @include breakpoint($mq-lg) {
+          border-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+// FOOTER
+
+.page-footer {
+  padding: 60px 0;
+  background: url("../images/bg-footer.png") center center;
+  .section-header--dark { margin-bottom: 40px; }
+  .form-row {
+    margin-bottom: 20px;
+  }
+  .form-half {
+    display: flex;
+    justify-content: space-between;
+    .form-field {
+      width: calc(50% - 10px);
+    }
+  }
+  .btn-submit {
+    width: 100%;
+  }
+  .form-response {
+    @include font(14, 6, $openSansMedium);
+    display: block;
+    margin-top: -8px;
+    text-align: center;
+    font-size: 14px;
+    color: $red;
+  }
+}
+
+// Form field
+
+.form-field {
+  position: relative;
+  input:focus ~ .form-label,
+  textarea:focus ~ .form-label,
+  input:not(:focus):valid ~ .form-label,
+  textarea:not(:focus):valid ~ .form-label {
+    top: -15px;
+    padding-left: 0;
+    color: $white;
+    font-size: 10px;
+  }
+  .form-label {
+    @include font(14, 6, $openSans);
+    padding-left: 12px;
+    position: absolute;
+    top: 9px;
+    pointer-events: none;
+    transition: all 0.25s ease-out;
+    color: $blackish;
+    abbr {
+      color: $red;
+      border: 0;
+      text-decoration: none;
+    }
+  }
+}
+
+// COPYRIGHTS
+
+.page-copyrights {
+  display: flex;
+  height: 62px;
+  align-items: center;
+  font-size: 12px;
+  background: $blackish;
+  color: $grey;
+  .page-wrapper-lg {
+    display: flex;
+    justify-content: space-between;
+  }
+  .copyrights-reserved {}
+  .copyrights-author {}
+}

@@ -1,0 +1,98 @@
+// TIMELINE EXPERIENCE CONTENT
+
+.timeline-job {
+  @extend %box-item;
+  position: relative;
+  padding: 20px;
+  background: $whiteDirty;
+  @include breakpoint($mq-sm) {
+    padding: 30px;
+  }
+  @include breakpoint($mq-md) {
+    padding: 40px;
+  }
+  .timeline-company-title {
+    @include font(18, 4, $openSansMedium);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    color: $red;
+    @include breakpoint($mq-sm) {
+      @include font-size(20, 4);
+    }
+  }
+  .timeline-company-txt {
+    @include font(18, 4, $openSansMedium);
+    margin-bottom: 6px;
+    @include breakpoint($mq-sm) {
+      @include font-size(20, 4);
+    }
+  }
+  .timeline-skill-title {
+    @include font(16, 4, $openSans);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    @include breakpoint($mq-sm) {
+      @include font-size(18, 4);
+    }
+  }
+  .timeline-skill-list {
+    @include font(14, 4, $openSans);
+    @include breakpoint($mq-sm) {
+      @include font-size(16, 4);
+    }
+  }
+  .timeline-skill-item {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 4px;
+    &:before {
+      @include font(18, 0, $openSansMedium);
+      content: "+";
+      position: absolute;
+      left: 6px;
+      margin-top: -1px;
+      @include breakpoint($mq-sm) {
+        @include font-size(22, 0);
+        margin-top: -2px;
+      }
+    }
+  }
+}
+
+.timeline-job--left {
+  &:before {
+    @extend %box-item;
+    @include triangle(left, $whiteDirty, 14px, 1, true);
+    right: 100%;
+    top: 50%;
+    margin-top: -20px; // After rotation the block is 40px x 40px
+    transform-origin: right top;
+    transform: rotate(-45deg);
+    @include breakpoint($mq-md) {
+      display: none;
+    }
+  }
+  &:after {
+    @extend %box-item;
+    @include breakpoint($mq-md) {
+      @include triangle(right, $whiteDirty, 14px, 1, true);
+      left: 100%;
+      top: 50%;
+      margin-top: -20px; // After rotation the block is 40px x 40px
+      transform-origin: left top;
+      transform: rotate(45deg);
+    }
+  }
+}
+
+.timeline-job--right {
+  &:before {
+    @extend %box-item;
+    @include triangle(left, $whiteDirty, 14px, 1, true);
+    right: 100%;
+    top: 50%;
+    margin-top: -20px; // After rotation the block is 40px x 40px
+    transform-origin: right top;
+    transform: rotate(-45deg);
+  }
+}

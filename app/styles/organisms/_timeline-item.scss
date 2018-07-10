@@ -1,0 +1,108 @@
+// TIMELINE ITEM
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  grid-column-gap: 20px;
+  grid-auto-rows: minmax(100px, auto);
+  @include breakpoint($mq-sm) {
+    grid-template-columns: 100px 1fr;
+    grid-column-gap: 30px;
+  }
+  @include breakpoint($mq-md) {
+    grid-template-columns: 1fr 100px 1fr;
+    grid-auto-rows: minmax(150px, auto);
+  }
+  .timeline-date {
+    grid-column: 1;
+    display: flex;
+    @include breakpoint($mq-md) {
+      grid-column: 2;
+    }
+    .timeline-date-inner {
+      align-self: flex-end;
+      transform: translateY(50%);
+    }
+  }
+  .timeline-job {
+    margin: 10px 0;
+    @include breakpoint($mq-md) {
+      margin: 0;
+    }
+  }
+}
+
+.timeline-item.timeline-item--right {
+  .timeline-draw {
+    @include breakpoint($mq-md) {
+      left: initial;
+      right: 0;
+      margin-left: 0;
+    }
+  }
+  .timeline-job {
+    grid-column: 2;
+    @include breakpoint($mq-md) {
+      grid-column: 3;
+    }
+  }
+}
+
+.timeline-item.timeline-item--left {
+  .timeline-draw {
+    @include breakpoint($mq-md) {
+      left: 0;
+      margin-left: 0;
+    }
+  }
+  .timeline-job {
+    grid-column: 2;
+    @include breakpoint($mq-md) {
+      grid-column: 1;
+      order: 1;
+    }
+  }
+  .timeline-date {
+    @include breakpoint($mq-md) {
+      order: 2;
+    }
+  }
+}
+
+.timeline-item.timeline-item--first {
+  .timeline-date {
+    &:before {
+      @include triangle(top, $red, 5px, 1);
+      bottom: 100%;
+      left: 50%;
+      margin-left: -5px;
+      @include breakpoint($mq-sm) {
+        @include triangle(top, $red, 7.5px, 1);
+        margin-left: -7.5px;
+      }
+      @include breakpoint($mq-md) {
+        left: 0;
+        margin-left: 0;
+      }
+    }
+  }
+  .timeline-date-inner {
+    @include breakpoint($mq-md) {
+      transform: translateY(50%);
+    }
+  }
+  .timeline-draw {
+    &:after {
+      display: none;
+    }
+  }
+}
+
+.timeline-item.timeline-item--last {
+  .timeline-draw {
+    height: calc(100% + 60px);
+    &:after {
+      display: none;
+    }
+  }
+}

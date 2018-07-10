@@ -1,0 +1,46 @@
+/* ------------------
+   CONFIGS: VARIABLES
+   ------------------ */
+
+// font sizes
+
+$base-font-size     : 16px;
+$base-line-height   : 1.25;
+$base-letter-spacing: 1px;
+
+// font stacks
+
+$sansSerif          : sans-serif;
+$openSans           : "Open Sans";
+$openSansItalic     : "Open Sans Italic";
+$openSansMedium     : "Open Sans Medium";
+$openSansBold       : "Open Sans Bold";
+
+// Colors
+
+$black              : #000;
+$darknight          : #111;
+$blackish           : #222;
+$greyDark           : #333;
+$grey               : #666;
+$greyLight          : #aaa;
+$greyLightest       : #e4e4e4;
+$white              : #fff;
+$whiteDirty         : #f7f7f7;
+$red                : #f16058;
+$blueLight          : #47aaff;
+$blueMiddle         : #238ae3;
+$blueDark           : #0148a8;
+
+// Breakpoints
+
+$mq-xs              : 320px;
+$mq-sm              : 544px;
+$mq-md              : 768px;
+$mq-lg              : 992px;
+$mq-xl              : 1200px;
+$mq-xxl             : 1400px;
+
+// Transition
+
+$bounceTransition   : cubic-bezier(0.25, 0.25, 0.115, 1.445);

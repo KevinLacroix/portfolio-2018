@@ -1,0 +1,60 @@
+// TIMELINE DATE
+
+.timeline-date {
+  position: relative;
+  .timeline-date-inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+    border: 8px solid $red;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    background: $white;
+    @include breakpoint($mq-sm) {
+      height: 100px;
+      width: 100px;
+      border: 10px solid $red;
+    }
+  }
+  .timeline-year {
+    @include font(18, 0, $openSansMedium);
+    @include breakpoint($mq-sm) {
+      @include font(24, 0, $openSansMedium);
+    }
+  }
+  .timeline-month {
+    @include font(8, 2, $openSans);
+    letter-spacing: 0;
+    @include breakpoint($mq-sm) {
+      @include font(12, 2, $openSans);
+    }
+  }
+  .timeline-draw {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 10px;
+    margin-left: -5px;
+    background: $red;
+    @include breakpoint($mq-sm) {
+      width: 16px;
+      margin-left: -8px;
+    }
+    &:after {
+      @include pseudoElement();
+      top: 50%;
+      left: 50%;
+      height: 8px;
+      width: 8px;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      background: $white;
+    }
+  }
+}

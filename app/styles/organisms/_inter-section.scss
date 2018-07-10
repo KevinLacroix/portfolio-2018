@@ -1,0 +1,90 @@
+// INTER SECTION BLOCKS
+
+%inter-section {
+  position: relative;
+  min-height: 100px;
+  text-align: center;
+  &:before,
+  &:after {
+    @include pseudoElement();
+  }
+}
+
+// INTER SECTION: TAGLINE
+
+.inter-section--tagline {
+  @extend %inter-section;
+  padding: 60px 0;
+  background: $blueDark;
+  color: $blueLight;
+  @include breakpoint($mq-lg) {
+    padding: 80px 0;
+  }
+  @include breakpoint($mq-xxl) {
+    padding: 100px 0;
+  }
+  &:before,
+  &:after {
+    height: 42px;
+    left: 0;
+    right: 0;
+  }
+  &:before {
+    top: 0;
+    background: url("../images/curve-white.svg") center top no-repeat;
+    background-size: 104%;
+  }
+  &:after {
+    bottom: 0;
+    background: url("../images/curve-blue-light.svg") center bottom no-repeat;
+    background-size: 104%;
+  }
+  .tagline-item {
+    @include font(20, 6, $openSansMedium);
+    text-transform: uppercase;
+    @include breakpoint($mq-lg) {
+      @include font-size(24, 6);
+    }
+    @include breakpoint($mq-xl) {
+      @include font-size(28, 6);
+    }
+    &:first-child {
+      margin-bottom: 10px;
+    }
+  }
+  .tagline-base {
+    width: 100%;
+    @include breakpoint($mq-md) {
+      width: auto;
+    }
+  }
+  .tagline-animated {
+    color: $white;
+  }
+}
+
+// INTER SECTION: ABOUT ME
+
+.inter-section--about {
+  @extend %inter-section;
+  padding: 60px 0;
+  background: $red;
+  color: $white;
+  // .section-header--dark { margin-bottom: 40px; }
+  &:before {
+    @include breakpoint($mq-md) {
+      @include triangle(bottom, $white);
+      top: -1px;
+      left: 40px;
+    }
+  }
+  &:after {
+    @include triangle(bottom, $red);
+    top: calc(100% - 1px);
+    right: 40px;
+  }
+  .download-instruction {
+    font-size: 10px;
+    margin-top: 6px;
+  }
+}
