@@ -1,4 +1,4 @@
-// generated on 2017-08-14 using generator-webapp 2.4.1
+// generated on 2018-07-10 using generator-webapp 3.0.1
 const gulp = require('gulp');
 const gulpLoadPlugins = require('gulp-load-plugins');
 const browserSync = require('browser-sync').create();
@@ -37,6 +37,11 @@ gulp.task('scripts', () => {
     .pipe($.if(dev, $.sourcemaps.write('.')))
     .pipe(gulp.dest('.tmp/scripts'))
     .pipe(reload({stream: true}));
+});
+
+gulp.task('copyBuildFix', () => {
+  return gulp.src(['app/scripts/**/*.js', '!app/scripts/main.js'])
+    .pipe(gulp.dest('dist/scripts'));
 });
 
 function lint(files) {
@@ -98,8 +103,8 @@ gulp.task('svgSprite', function () {
     .pipe(gulp.dest("app/images"));
 });
 
-gulp.task('images', ['svgSprite'], () => {
-  return gulp.src(['app/images/**/*', '!app/images/icons/*', '!app/images/svg-sprites/*'])
+gulp.task('images', () => {
+  return gulp.src(['app/images/**/*', '!app/images/svg-sprites/*.scss'])
     .pipe($.cache($.imagemin()))
     .pipe(gulp.dest('dist/images'));
 });
@@ -193,7 +198,7 @@ gulp.task('wiredep', () => {
     .pipe(gulp.dest('app'));
 });
 
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
+gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras', 'copyBuildFix'], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
