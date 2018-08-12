@@ -381,6 +381,30 @@ $(document).ready(function() {
 
   }
 
+  // i18n
+
+  $.i18n().load({
+    'en': 'i18n/en.json',
+    'fr': 'i18n/fr.json'
+  }).done(function() {
+    $('body').i18n();
+    $('.js-lang-switch').click(function(e) {
+      e.preventDefault();
+      $.i18n().locale = $(this).data('locale');
+      $('body').i18n();
+
+      // Translations for metas or values inside attributes need to be called here
+      $('meta[property="og:title"]').prop('content', $.i18n('meta-title'));
+      $('meta[name="twitter:title"]').prop('content', $.i18n('meta-title'));
+      $('meta[name="description"]').prop('content', $.i18n('meta-description'));
+      $('meta[property="og:description"]').prop('content', $.i18n('meta-description'));
+      $('meta[name="twitter:description"]').prop('content', $.i18n('meta-description'));
+    });
+  });
+
+  console.log($.i18n().locale);
+
+
 });
 
 (function($) {

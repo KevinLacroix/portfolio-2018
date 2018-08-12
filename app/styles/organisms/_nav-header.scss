@@ -57,4 +57,32 @@
       }
     }
   }
+  .lang {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    @include breakpoint($mq-xxl) {
+      right: 40px;
+      top: initial;
+    }
+  }
+}
+
+// Lang block
+
+.lang {
+  @include font(11, 6, $openSans);
+  color: $blueLight;
+  @include breakpoint($mq-xxl) {
+    font-size: 16px;
+  }
+  .lang-link {
+    color: inherit;
+    font-size: inherit;
+    text-transform: uppercase;
+    transition: color 0.25s ease-in;
+    &:hover {
+      color: $white;
+    }
+  }
 }

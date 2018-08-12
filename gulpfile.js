@@ -84,23 +84,23 @@ gulp.task('svgSprite', function () {
     .pipe($.svgSprite({
       mode: {
         css: {
-          dest: "svg-sprites",
-          layout: "diagonal",
-          sprite: "sprite.svg",
+          dest: svg-sprites,
+          layout: diagonal,
+          sprite: sprite.svg,
           bust: false,
           render: {
             scss: {
-              dest: "_sprite.scss",
-              template: "app/images/svg-sprites/_sprite-template.scss"
+              dest: _sprite.scss,
+              template: app/images/svg-sprites/_sprite-template.scss
             }
           }
         }
       },
       variables: {
-        mapname: "icons"
+        mapname: icons
       }
     }))
-    .pipe(gulp.dest("app/images"));
+    .pipe(gulp.dest(app/images));
 });
 
 gulp.task('images', () => {
