@@ -72,7 +72,7 @@
 
 .lang {
   @include font(11, 6, $openSans);
-  color: $blueLight;
+  color: $red;
   @include breakpoint($mq-xxl) {
     font-size: 16px;
   }

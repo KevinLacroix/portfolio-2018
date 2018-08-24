@@ -39,9 +39,14 @@ gulp.task('scripts', () => {
     .pipe(reload({stream: true}));
 });
 
-gulp.task('copyBuildFix', () => {
+gulp.task('copyJSforBuild', () => {
   return gulp.src(['app/scripts/**/*.js', '!app/scripts/main.js'])
     .pipe(gulp.dest('dist/scripts'));
+});
+
+gulp.task('copyJSONforBuild', () => {
+  return gulp.src('app/i18n/**/*.json')
+    .pipe(gulp.dest('dist/i18n'));
 });
 
 function lint(files) {
@@ -198,7 +203,7 @@ gulp.task('wiredep', () => {
     .pipe(gulp.dest('app'));
 });
 
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras', 'copyBuildFix'], () => {
+gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras', 'copyJSforBuild', 'copyJSONforBuild'], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
